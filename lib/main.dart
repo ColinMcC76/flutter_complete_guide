@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  MyAppState createState() => MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyAppState extends State<MyApp> {
-  int questionIndex = 0;
-  void answerQuestion() {
-    setState(()=>{
-      questionIndex += 1
-
-    });
-    print(questionIndex);
+class _MyAppState extends State<MyApp> {
+  int _questionIndex = 0;
+  void _answerQuestion() {
+    setState(() => {_questionIndex += 1});
+    print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     var questions = [
-      "What's your favoitre color?",
-      "What's your favoite animal?",
+      "What's your favorite color?",
+      "What's your favorite animal?",
     ];
     return MaterialApp(
       home: Scaffold(
@@ -30,12 +29,13 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
-              questions[questionIndex],
+            Question(
+              questions[_questionIndex],
             ),
             RaisedButton(
-              child: Text('Answer 1'), 
-              onPressed: answerQuestion),
+              child: Text('Answer 1'),
+              onPressed: _answerQuestion,
+            ),
             RaisedButton(
               child: Text('Answer 2'),
               onPressed: () => {print('Answer 2 confirmed')},
