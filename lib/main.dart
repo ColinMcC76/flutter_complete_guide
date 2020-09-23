@@ -19,6 +19,7 @@ class MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('My First App'),
+          backgroundColor: Color(0xff230802),
         ),
         body: Text('Main body'),
       ),
