@@ -10,59 +10,55 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   int questionIndex = 0;
   void answerQuestion() {
-    questionIndex += 1;
+    setState(()=>{
+      questionIndex += 1
+
+    });
+    print(questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      "What's your favoitre color?",
+      "What's your favoite animal?",
+    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App'),
-          backgroundColor: Color(0xff230802),
+          title: Text('Complete Flutter Guide'),
         ),
-        body: Text('Main body'),
+        body: Column(
+          children: [
+            Text(
+              questions[questionIndex],
+            ),
+            RaisedButton(
+              child: Text('Answer 1'), 
+              onPressed: answerQuestion),
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: () => {print('Answer 2 confirmed')},
+            ),
+            RaisedButton(
+              child: Text('Answer 3'),
+              onPressed: () => {print('Answer 3 confirmed')},
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-// class MyApp extends StatefulWidget {
-//   var questionIndex = 0;
-
-//   void answerQuestion() {
-//     questionIndex = questionIndex + 1;
-
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     var questions = [
-//       'What\'s your favoitre color?',
-//       'What\'s your favoite animal?',
-//     ];
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Complete Flutter Guide'),
-//         ),
-//         body: Column(
-//           children: [
-//             Text(questions[questionIndex]),
-//             RaisedButton(
-//               child: Text('Answer 1'),
-//               onPressed: answerQuestion,
-//             ),
-//             RaisedButton(
-//               child: Text('Answer 2'),
-//               onPressed: () => {print('Answer 2 confirmed')},
-//             ),
-//             RaisedButton(
-//               child: Text('Answer 3'),
-//               onPressed: () => {print('Answer 3 confirmed')},
-//             ),
-//           ],
-//         ),
+// Widget build(BuildContext context) {
+//   return MaterialApp(
+//     home: Scaffold(
+//       appBar: AppBar(
+//         title: Text('My First App'),
+//         backgroundColor: Color(0xff230802),
 //       ),
-//     );
-//   }
+//       body: Text('Main body'),
+//     ),
+//   );
+// }
 // }
