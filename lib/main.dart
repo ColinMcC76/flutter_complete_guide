@@ -41,6 +41,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Complete Flutter Guide'),
+          backgroundColor: Colors.red,
         ),
         body: Column(
           children: [
